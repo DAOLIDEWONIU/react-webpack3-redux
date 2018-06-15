@@ -1,0 +1,169 @@
+$green: #008744;
+$blue: #0057e7;
+$red: #d62d20;
+$yellow: #ffa700;
+$white: #eee;
+$width: 100px;
+
+.showbox {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5%;
+}
+.loadingOut{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5%;
+  text-align: center;
+  .loadingIcon{
+    margin-top: 200px;
+    margin-bottom:20px;
+  }
+  .loadingText{
+    font-size: 20px;
+  }
+}
+// end demo-specific
+
+.loader {
+  position: relative;
+  background: #fff;
+  margin: 0 auto;
+  width: $width;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  border-radius: 50%;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: $red;
+  }
+  40% {
+    stroke: $blue;
+  }
+  66% {
+    stroke: $green;
+  }
+  80%,
+  90% {
+    stroke: $yellow;
+  }
+}
+
+
+
+@keyframes loading {
+  0% {
+    background-position: 0 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  to {
+    background-position: 0 50%
+  }
+}
+
+.loading1 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: block;
+  animation: loading 10s ease infinite;
+  background-image: linear-gradient(125deg, #fff, #f3f3f3 41%, #ededed 0, #fff);
+  background-size: 300% 300%;
+}
+.navBtnUnActive{
+  color: rgb(198, 197, 204);
+}
+.navBtnActive{
+  color: #00d6b2;
+}
+.active{
+  color: rgb(122, 122, 122);
+}
+.Nav-Btn{
+  height:100px;
+  display: flex;
+  background: #fff;
+  .navBtnUnActive{
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    &:after{
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width:0;
+      height:100%;
+    }
+    .Nav-Btn-tab{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .iconfont{
+      font-size: 48px;
+    }
+    p{
+      font-size: 20px;
+    }
+  }
+}
